@@ -1,0 +1,285 @@
+aid: authsignal
+url: https://raw.githubusercontent.com/api-evangelist/authsignal/refs/heads/main/apis.yml
+name: Authsignal
+kind: company
+description: >-
+  Authsignal is a passwordless, step-up, and risk-based authentication
+  platform. The product wraps passkeys, authenticator apps (TOTP), SMS and
+  WhatsApp OTP, email OTP and magic links, push notifications, biometrics
+  (face / palm), and ID verification behind a unified Server API, Client API,
+  and Management API. A no-code rules engine routes high-risk events through
+  step-up challenges, and audit / observability surfaces every authentication
+  attempt. Authsignal slots in front of existing identity providers
+  (Cognito, Auth0, Azure AD B2C, Keycloak, IdentityServer, NextAuth.js) or
+  works standalone.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Authentication
+  - Passkeys
+  - MFA
+  - Step-Up
+  - Passwordless
+  - Risk
+  - Biometrics
+  - Identity Verification
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis:
+  - aid: authsignal:server-api
+    name: Authsignal Server API
+    description: >-
+      Server-to-server REST API used to track user actions, evaluate the rules
+      engine, mint short-lived URLs for the pre-built authentication UI, issue
+      client tokens, validate challenge results, and manage enrolled
+      authenticators on behalf of users. Authenticated with the tenant secret
+      (HTTP Basic with the tenant ID as username).
+    humanURL: https://docs.authsignal.com/api-reference/server-api/overview
+    baseURL: https://api.authsignal.com
+    tags:
+      - REST
+      - Server
+      - Actions
+      - Users
+      - Authenticators
+    properties:
+      - type: Documentation
+        url: https://docs.authsignal.com/api-reference/server-api/overview
+  - aid: authsignal:client-api
+    name: Authsignal Client API
+    description: >-
+      Browser / device-facing REST API for fully custom authentication UIs.
+      Supports passkeys, authenticator apps, SMS / WhatsApp OTP, email OTP,
+      magic links, and push challenges. Authenticated with short-lived client
+      tokens issued by the Server API.
+    humanURL: https://docs.authsignal.com/api-reference/client-api/overview
+    baseURL: https://api.authsignal.com
+    tags:
+      - REST
+      - Client
+      - Passkeys
+      - OTP
+    properties:
+      - type: Documentation
+        url: https://docs.authsignal.com/api-reference/client-api/overview
+  - aid: authsignal:management-api
+    name: Authsignal Management API
+    description: >-
+      REST API for tenant-level configuration: actions and rules, theme and
+      branding, and other tenant settings. Authenticated with a separate
+      management API key.
+    humanURL: https://docs.authsignal.com/api-reference/management-api/overview
+    baseURL: https://api.authsignal.com
+    tags:
+      - REST
+      - Management
+      - Configuration
+      - Tenant
+    properties:
+      - type: Documentation
+        url: https://docs.authsignal.com/api-reference/management-api/overview
+  - aid: authsignal:webhooks
+    name: Authsignal Webhooks
+    description: >-
+      Outbound webhooks delivering authentication and enrollment events,
+      enabling downstream systems to react to user lifecycle changes and
+      challenge outcomes.
+    humanURL: https://docs.authsignal.com/concepts/webhooks
+    baseURL: customer-configured
+    tags:
+      - Webhooks
+      - Events
+    properties:
+      - type: Documentation
+        url: https://docs.authsignal.com/concepts/webhooks
+  - aid: authsignal:sdk-node
+    name: Authsignal Node.js SDK
+    description: >-
+      Official server-side SDK for Node.js / TypeScript wrapping the Server
+      API.
+    humanURL: https://github.com/authsignal/authsignal-node
+    baseURL: https://github.com/authsignal/authsignal-node
+    tags:
+      - SDK
+      - Node.js
+      - TypeScript
+      - Server
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-node
+  - aid: authsignal:sdk-python
+    name: Authsignal Python SDK
+    description: >-
+      Official server-side Python SDK for the Authsignal Server API.
+    humanURL: https://github.com/authsignal/authsignal-python
+    baseURL: https://github.com/authsignal/authsignal-python
+    tags:
+      - SDK
+      - Python
+      - Server
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-python
+  - aid: authsignal:sdk-java
+    name: Authsignal Java SDK
+    description: >-
+      Official Java / Kotlin SDK for the Authsignal Server API.
+    humanURL: https://github.com/authsignal/authsignal-java
+    baseURL: https://github.com/authsignal/authsignal-java
+    tags:
+      - SDK
+      - Java
+      - Kotlin
+      - Server
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-java
+  - aid: authsignal:sdk-dotnet
+    name: Authsignal .NET SDK
+    description: >-
+      Official C# / .NET SDK for the Authsignal Server API.
+    humanURL: https://github.com/authsignal/authsignal-dotnet
+    baseURL: https://github.com/authsignal/authsignal-dotnet
+    tags:
+      - SDK
+      - .NET
+      - C#
+      - Server
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-dotnet
+  - aid: authsignal:sdk-ruby
+    name: Authsignal Ruby SDK
+    description: >-
+      Official Ruby SDK for the Authsignal Server API.
+    humanURL: https://github.com/authsignal/authsignal-ruby
+    baseURL: https://github.com/authsignal/authsignal-ruby
+    tags:
+      - SDK
+      - Ruby
+      - Server
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-ruby
+  - aid: authsignal:sdk-php
+    name: Authsignal PHP SDK
+    description: >-
+      Official PHP SDK for the Authsignal Server API.
+    humanURL: https://github.com/authsignal/authsignal-php
+    baseURL: https://github.com/authsignal/authsignal-php
+    tags:
+      - SDK
+      - PHP
+      - Server
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-php
+  - aid: authsignal:sdk-go
+    name: Authsignal Go SDK
+    description: >-
+      Official Go SDK for the Authsignal Server API.
+    humanURL: https://github.com/authsignal/authsignal-go
+    baseURL: https://github.com/authsignal/authsignal-go
+    tags:
+      - SDK
+      - Go
+      - Server
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-go
+  - aid: authsignal:sdk-browser
+    name: Authsignal Browser SDK
+    description: >-
+      JavaScript / TypeScript browser SDK wrapping the Client API and
+      WebAuthn / passkey ceremonies for web applications.
+    humanURL: https://github.com/authsignal/authsignal-browser
+    baseURL: https://github.com/authsignal/authsignal-browser
+    tags:
+      - SDK
+      - JavaScript
+      - Browser
+      - Passkeys
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-browser
+  - aid: authsignal:sdk-ios
+    name: Authsignal iOS SDK
+    description: >-
+      Native iOS (Swift) SDK for passkeys, push, and OTP challenges in iOS
+      applications.
+    humanURL: https://github.com/authsignal/authsignal-ios
+    baseURL: https://github.com/authsignal/authsignal-ios
+    tags:
+      - SDK
+      - iOS
+      - Mobile
+      - Passkeys
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-ios
+  - aid: authsignal:sdk-android
+    name: Authsignal Android SDK
+    description: >-
+      Native Android (Kotlin) SDK for passkeys, push, and OTP challenges in
+      Android applications.
+    humanURL: https://github.com/authsignal/authsignal-android
+    baseURL: https://github.com/authsignal/authsignal-android
+    tags:
+      - SDK
+      - Android
+      - Mobile
+      - Passkeys
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-android
+  - aid: authsignal:sdk-react-native
+    name: Authsignal React Native SDK
+    description: >-
+      React Native wrapper around the iOS and Android SDKs.
+    humanURL: https://github.com/authsignal/react-native-authsignal
+    baseURL: https://github.com/authsignal/react-native-authsignal
+    tags:
+      - SDK
+      - React Native
+      - Mobile
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/react-native-authsignal
+  - aid: authsignal:sdk-flutter
+    name: Authsignal Flutter SDK
+    description: >-
+      Flutter (Dart) SDK wrapping the iOS and Android native SDKs.
+    humanURL: https://github.com/authsignal/authsignal-flutter
+    baseURL: https://github.com/authsignal/authsignal-flutter
+    tags:
+      - SDK
+      - Flutter
+      - Mobile
+    properties:
+      - type: Repository
+        url: https://github.com/authsignal/authsignal-flutter
+common:
+  - type: Website
+    url: https://www.authsignal.com/
+  - type: Documentation
+    url: https://docs.authsignal.com/
+  - type: GitHub
+    url: https://github.com/authsignal
+  - type: Status
+    url: https://status.authsignal.com/
+  - type: Pricing
+    url: https://www.authsignal.com/pricing
+  - type: Blog
+    url: https://www.authsignal.com/blog
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/authsignal
+integrations:
+  - name: Amazon Cognito
+  - name: Auth0
+  - name: Azure AD B2C
+  - name: Keycloak
+  - name: Duende IdentityServer
+  - name: NextAuth.js
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
