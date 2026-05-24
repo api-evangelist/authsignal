@@ -273,6 +273,8 @@ common:
     url: https://www.authsignal.com/blog
   - type: LinkedIn
     url: https://www.linkedin.com/company/authsignal
+  - type: LLMsTxt
+    url: https://docs.authsignal.com/llms.txt
 integrations:
   - name: Amazon Cognito
   - name: Auth0
