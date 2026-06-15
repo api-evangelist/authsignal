@@ -1,0 +1,517 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authsignal Server API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "phoneNumber",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "verificationToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Query users"
+        },
+        {
+          "info": {
+            "name": "Get user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "Get user"
+        },
+        {
+          "info": {
+            "name": "Update user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.authsignal.com/v1/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "Update user"
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.authsignal.com/v1/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "Delete user"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Authenticators",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get tenant authenticators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/authenticators"
+          },
+          "docs": "Get tenant authenticators"
+        },
+        {
+          "info": {
+            "name": "Get user authenticators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users/:userId/authenticators",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "Get user authenticators"
+        },
+        {
+          "info": {
+            "name": "Enroll authenticator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/users/:userId/authenticators",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "Enroll authenticator"
+        },
+        {
+          "info": {
+            "name": "Delete authenticator",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.authsignal.com/v1/users/:userId/authenticators/:userAuthenticatorId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "userAuthenticatorId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete authenticator"
+        },
+        {
+          "info": {
+            "name": "Batch enroll passkeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/users/authenticators"
+          },
+          "docs": "Batch enroll passkeys"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Track action",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/users/:userId/actions/:action",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Track action"
+        },
+        {
+          "info": {
+            "name": "Get action",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users/:userId/actions/:action/:idempotencyKey",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "idempotencyKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get action"
+        },
+        {
+          "info": {
+            "name": "Update action",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.authsignal.com/v1/users/:userId/actions/:action/:idempotencyKey",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "idempotencyKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update action"
+        },
+        {
+          "info": {
+            "name": "Query user actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users/:userId/actions",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "Query user actions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Challenges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Challenge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/challenge"
+          },
+          "docs": "Initiate a challenge via SMS, email or WhatsApp."
+        },
+        {
+          "info": {
+            "name": "Verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/verify"
+          },
+          "docs": "Verify a challenge using a submitted code."
+        },
+        {
+          "info": {
+            "name": "Claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/claim"
+          },
+          "docs": "Claim an SMS/email challenge on behalf of a user."
+        },
+        {
+          "info": {
+            "name": "Get challenge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/challenges"
+          },
+          "docs": "Get challenge"
+        },
+        {
+          "info": {
+            "name": "Validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/validate"
+          },
+          "docs": "Validate the result of an action using a token."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions"
+          },
+          "docs": "Create session"
+        },
+        {
+          "info": {
+            "name": "Validate session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions/validate"
+          },
+          "docs": "Validate session"
+        },
+        {
+          "info": {
+            "name": "Refresh session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions/refresh"
+          },
+          "docs": "Refresh session"
+        },
+        {
+          "info": {
+            "name": "Revoke session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions/revoke"
+          },
+          "docs": "Revoke session"
+        },
+        {
+          "info": {
+            "name": "Revoke all user sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions/user/revoke"
+          },
+          "docs": "Revoke all user sessions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List user devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users/:userId/devices",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "List user devices"
+        },
+        {
+          "info": {
+            "name": "Update device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.authsignal.com/v1/users/:userId/devices/:deviceId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update device"
+        },
+        {
+          "info": {
+            "name": "Invalidate device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/users/:userId/devices/:deviceId/invalidate",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Invalidate device"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
