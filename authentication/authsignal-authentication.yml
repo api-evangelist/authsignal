@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/authsignal-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: |-
+    HTTP Basic auth where the username is the Authsignal tenant secret API
+    key and the password is empty.
+  sources:
+  - openapi/authsignal-openapi.yml

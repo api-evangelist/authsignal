@@ -259,6 +259,10 @@ apis:
       - type: Repository
         url: https://github.com/authsignal/authsignal-flutter
 common:
+  - type: DomainSecurity
+    url: security/authsignal-domain-security.yml
+  - type: Authentication
+    url: authentication/authsignal-authentication.yml
   - type: Website
     url: https://www.authsignal.com/
   - type: Documentation
