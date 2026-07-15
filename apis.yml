@@ -259,6 +259,8 @@ apis:
       - type: Repository
         url: https://github.com/authsignal/authsignal-flutter
 common:
+  - type: AgenticAccess
+    url: agentic-access/authsignal-agentic-access.yml
   - type: DomainSecurity
     url: security/authsignal-domain-security.yml
   - type: Authentication
