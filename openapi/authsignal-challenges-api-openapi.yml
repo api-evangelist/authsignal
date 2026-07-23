@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: Authsignal Server Actions Challenges API
+  description: 'Best-effort OpenAPI 3.1 description of the Authsignal Server API (v1).
+
+    Authsignal provides drop-in MFA, passwordless and risk-based authentication.
+
+    Derived from public docs at https://docs.authsignal.com/api-reference/server-api/overview
+
+    and the OpenAPI spec referenced at https://docs.authsignal.com/server-api.json.
+
+    '
+  version: '1'
+  contact:
+    name: Authsignal Docs
+    url: https://docs.authsignal.com/api-reference/server-api/overview
+servers:
+- url: https://api.authsignal.com/v1
+  description: US (Oregon)
+- url: https://eu.api.authsignal.com/v1
+  description: EU (Ireland)
+- url: https://au.api.authsignal.com/v1
+  description: AU (Sydney)
+- url: https://ca.api.authsignal.com/v1
+  description: CA (Montreal)
+security:
+- basicAuth: []
+tags:
+- name: Challenges
+paths:
+  /challenge:
+    post:
+      tags:
+      - Challenges
+      summary: Challenge
+      description: Initiate a challenge via SMS, email or WhatsApp.
+      operationId: challenge
+      responses:
+        '200':
+          description: Challenge initiated
+  /verify:
+    post:
+      tags:
+      - Challenges
+      summary: Verify
+      description: Verify a challenge using a submitted code.
+      operationId: verify
+      responses:
+        '200':
+          description: Challenge verified
+  /claim:
+    post:
+      tags:
+      - Challenges
+      summary: Claim
+      description: Claim an SMS/email challenge on behalf of a user.
+      operationId: claim
+      responses:
+        '200':
+          description: Claim succeeded
+  /challenges:
+    get:
+      tags:
+      - Challenges
+      summary: Get challenge
+      operationId: getChallenge
+      responses:
+        '200':
+          description: Challenge info returned
+  /validate:
+    post:
+      tags:
+      - Challenges
+      summary: Validate
+      description: Validate the result of an action using a token.
+      operationId: validate
+      responses:
+        '200':
+          description: Validation result
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic auth where the username is the Authsignal tenant secret API
+
+        key and the password is empty.
+
+        '

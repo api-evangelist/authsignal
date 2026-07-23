@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: Authsignal Server Actions API
+  description: 'Best-effort OpenAPI 3.1 description of the Authsignal Server API (v1).
+
+    Authsignal provides drop-in MFA, passwordless and risk-based authentication.
+
+    Derived from public docs at https://docs.authsignal.com/api-reference/server-api/overview
+
+    and the OpenAPI spec referenced at https://docs.authsignal.com/server-api.json.
+
+    '
+  version: '1'
+  contact:
+    name: Authsignal Docs
+    url: https://docs.authsignal.com/api-reference/server-api/overview
+servers:
+- url: https://api.authsignal.com/v1
+  description: US (Oregon)
+- url: https://eu.api.authsignal.com/v1
+  description: EU (Ireland)
+- url: https://au.api.authsignal.com/v1
+  description: AU (Sydney)
+- url: https://ca.api.authsignal.com/v1
+  description: CA (Montreal)
+security:
+- basicAuth: []
+tags:
+- name: Actions
+paths:
+  /users/{userId}/actions/{action}:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    - in: path
+      name: action
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Actions
+      summary: Track action
+      operationId: trackAction
+      responses:
+        '200':
+          description: Action tracked
+  /users/{userId}/actions/{action}/{idempotencyKey}:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    - in: path
+      name: action
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: idempotencyKey
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Actions
+      summary: Get action
+      operationId: getAction
+      responses:
+        '200':
+          description: Action returned
+    patch:
+      tags:
+      - Actions
+      summary: Update action
+      operationId: updateAction
+      responses:
+        '200':
+          description: Action updated
+  /users/{userId}/actions:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      tags:
+      - Actions
+      summary: Query user actions
+      operationId: queryActions
+      responses:
+        '200':
+          description: Actions returned
+components:
+  parameters:
+    UserId:
+      in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+      description: Authsignal user ID
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic auth where the username is the Authsignal tenant secret API
+
+        key and the password is empty.
+
+        '

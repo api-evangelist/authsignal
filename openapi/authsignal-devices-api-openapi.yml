@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Authsignal Server Actions Devices API
+  description: 'Best-effort OpenAPI 3.1 description of the Authsignal Server API (v1).
+
+    Authsignal provides drop-in MFA, passwordless and risk-based authentication.
+
+    Derived from public docs at https://docs.authsignal.com/api-reference/server-api/overview
+
+    and the OpenAPI spec referenced at https://docs.authsignal.com/server-api.json.
+
+    '
+  version: '1'
+  contact:
+    name: Authsignal Docs
+    url: https://docs.authsignal.com/api-reference/server-api/overview
+servers:
+- url: https://api.authsignal.com/v1
+  description: US (Oregon)
+- url: https://eu.api.authsignal.com/v1
+  description: EU (Ireland)
+- url: https://au.api.authsignal.com/v1
+  description: AU (Sydney)
+- url: https://ca.api.authsignal.com/v1
+  description: CA (Montreal)
+security:
+- basicAuth: []
+tags:
+- name: Devices
+paths:
+  /users/{userId}/devices:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      tags:
+      - Devices
+      summary: List user devices
+      operationId: listDevices
+      responses:
+        '200':
+          description: Devices returned
+  /users/{userId}/devices/{deviceId}:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    - in: path
+      name: deviceId
+      required: true
+      schema:
+        type: string
+    patch:
+      tags:
+      - Devices
+      summary: Update device
+      operationId: updateDevice
+      responses:
+        '200':
+          description: Device updated
+  /users/{userId}/devices/{deviceId}/invalidate:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    - in: path
+      name: deviceId
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Devices
+      summary: Invalidate device
+      operationId: invalidateDevice
+      responses:
+        '200':
+          description: Device invalidated
+components:
+  parameters:
+    UserId:
+      in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+      description: Authsignal user ID
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic auth where the username is the Authsignal tenant secret API
+
+        key and the password is empty.
+
+        '

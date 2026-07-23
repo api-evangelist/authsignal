@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: Authsignal Server Actions Sessions API
+  description: 'Best-effort OpenAPI 3.1 description of the Authsignal Server API (v1).
+
+    Authsignal provides drop-in MFA, passwordless and risk-based authentication.
+
+    Derived from public docs at https://docs.authsignal.com/api-reference/server-api/overview
+
+    and the OpenAPI spec referenced at https://docs.authsignal.com/server-api.json.
+
+    '
+  version: '1'
+  contact:
+    name: Authsignal Docs
+    url: https://docs.authsignal.com/api-reference/server-api/overview
+servers:
+- url: https://api.authsignal.com/v1
+  description: US (Oregon)
+- url: https://eu.api.authsignal.com/v1
+  description: EU (Ireland)
+- url: https://au.api.authsignal.com/v1
+  description: AU (Sydney)
+- url: https://ca.api.authsignal.com/v1
+  description: CA (Montreal)
+security:
+- basicAuth: []
+tags:
+- name: Sessions
+paths:
+  /sessions:
+    post:
+      tags:
+      - Sessions
+      summary: Create session
+      operationId: createSession
+      responses:
+        '201':
+          description: Session created
+  /sessions/validate:
+    post:
+      tags:
+      - Sessions
+      summary: Validate session
+      operationId: validateSession
+      responses:
+        '200':
+          description: Session validated
+  /sessions/refresh:
+    post:
+      tags:
+      - Sessions
+      summary: Refresh session
+      operationId: refreshSession
+      responses:
+        '200':
+          description: Session refreshed
+  /sessions/revoke:
+    post:
+      tags:
+      - Sessions
+      summary: Revoke session
+      operationId: revokeSession
+      responses:
+        '200':
+          description: Session revoked
+  /sessions/user/revoke:
+    post:
+      tags:
+      - Sessions
+      summary: Revoke all user sessions
+      operationId: revokeUserSessions
+      responses:
+        '200':
+          description: All sessions revoked
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic auth where the username is the Authsignal tenant secret API
+
+        key and the password is empty.
+
+        '
