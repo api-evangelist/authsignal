@@ -1,0 +1,24 @@
+{
+  "provider": "authsignal",
+  "sources": [
+    "authsignal-actions-api-openapi.yml",
+    "authsignal-authenticators-api-openapi.yml",
+    "authsignal-challenges-api-openapi.yml",
+    "authsignal-devices-api-openapi.yml",
+    "authsignal-sessions-api-openapi.yml",
+    "authsignal-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "authsignal-actions-api-openapi.yml",
+    "authsignal-authenticators-api-openapi.yml",
+    "authsignal-challenges-api-openapi.yml",
+    "authsignal-devices-api-openapi.yml",
+    "authsignal-sessions-api-openapi.yml",
+    "authsignal-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,310 @@
+openapi: 3.1.0
+info:
+  title: Authsignal Server API
+  description: |
+    Best-effort OpenAPI 3.1 description of the Authsignal Server API (v1).
+    Authsignal provides drop-in MFA, passwordless and risk-based authentication.
+    Derived from public docs at https://docs.authsignal.com/api-reference/server-api/overview
+    and the OpenAPI spec referenced at https://docs.authsignal.com/server-api.json.
+  version: "1"
+  contact:
+    name: Authsignal Docs
+    url: https://docs.authsignal.com/api-reference/server-api/overview
+servers:
+  - url: https://api.authsignal.com/v1
+    description: US (Oregon)
+  - url: https://eu.api.authsignal.com/v1
+    description: EU (Ireland)
+  - url: https://au.api.authsignal.com/v1
+    description: AU (Sydney)
+  - url: https://ca.api.authsignal.com/v1
+    description: CA (Montreal)
+tags:
+  - name: Users
+  - name: Authenticators
+  - name: Actions
+  - name: Challenges
+  - name: Sessions
+  - name: Devices
+paths:
+  /users:
+    get:
+      tags: [Users]
+      summary: Query users
+      operationId: queryUsers
+      parameters:
+        - in: query
+          name: username
+          schema: { type: string }
+        - in: query
+          name: email
+          schema: { type: string }
+        - in: query
+          name: phoneNumber
+          schema: { type: string }
+        - in: query
+          name: verificationToken
+          schema: { type: string }
+      responses:
+        '200':
+          description: Users returned
+  /users/{userId}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [Users]
+      summary: Get user
+      operationId: getUser
+      responses:
+        '200':
+          description: User returned
+    patch:
+      tags: [Users]
+      summary: Update user
+      operationId: updateUser
+      responses:
+        '200':
+          description: User updated
+    delete:
+      tags: [Users]
+      summary: Delete user
+      operationId: deleteUser
+      responses:
+        '204':
+          description: User deleted
+  /authenticators:
+    get:
+      tags: [Authenticators]
+      summary: Get tenant authenticators
+      operationId: getAuthenticators
+      responses:
+        '200':
+          description: Authenticators returned
+  /users/{userId}/authenticators:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [Authenticators]
+      summary: Get user authenticators
+      operationId: getUserAuthenticators
+      responses:
+        '200':
+          description: User authenticators returned
+    post:
+      tags: [Authenticators]
+      summary: Enroll authenticator
+      operationId: enrollAuthenticator
+      responses:
+        '201':
+          description: Authenticator enrolled
+  /users/{userId}/authenticators/{userAuthenticatorId}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - in: path
+        name: userAuthenticatorId
+        required: true
+        schema: { type: string }
+    delete:
+      tags: [Authenticators]
+      summary: Delete authenticator
+      operationId: deleteAuthenticator
+      responses:
+        '204':
+          description: Deleted
+  /users/{userId}/actions/{action}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - in: path
+        name: action
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Actions]
+      summary: Track action
+      operationId: trackAction
+      responses:
+        '200':
+          description: Action tracked
+  /users/{userId}/actions/{action}/{idempotencyKey}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - in: path
+        name: action
+        required: true
+        schema: { type: string }
+      - in: path
+        name: idempotencyKey
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Actions]
+      summary: Get action
+      operationId: getAction
+      responses:
+        '200':
+          description: Action returned
+    patch:
+      tags: [Actions]
+      summary: Update action
+      operationId: updateAction
+      responses:
+        '200':
+          description: Action updated
+  /users/{userId}/actions:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [Actions]
+      summary: Query user actions
+      operationId: queryActions
+      responses:
+        '200':
+          description: Actions returned
+  /challenge:
+    post:
+      tags: [Challenges]
+      summary: Challenge
+      description: Initiate a challenge via SMS, email or WhatsApp.
+      operationId: challenge
+      responses:
+        '200':
+          description: Challenge initiated
+  /verify:
+    post:
+      tags: [Challenges]
+      summary: Verify
+      description: Verify a challenge using a submitted code.
+      operationId: verify
+      responses:
+        '200':
+          description: Challenge verified
+  /claim:
+    post:
+      tags: [Challenges]
+      summary: Claim
+      description: Claim an SMS/email challenge on behalf of a user.
+      operationId: claim
+      responses:
+        '200':
+          description: Claim succeeded
+  /challenges:
+    get:
+      tags: [Challenges]
+      summary: Get challenge
+      operationId: getChallenge
+      responses:
+        '200':
+          description: Challenge info returned
+  /validate:
+    post:
+      tags: [Challenges]
+      summary: Validate
+      description: Validate the result of an action using a token.
+      operationId: validate
+      responses:
+        '200':
+          description: Validation result
+  /sessions:
+    post:
+      tags: [Sessions]
+      summary: Create session
+      operationId: createSession
+      responses:
+        '201':
+          description: Session created
+  /sessions/validate:
+    post:
+      tags: [Sessions]
+      summary: Validate session
+      operationId: validateSession
+      responses:
+        '200':
+          description: Session validated
+  /sessions/refresh:
+    post:
+      tags: [Sessions]
+      summary: Refresh session
+      operationId: refreshSession
+      responses:
+        '200':
+          description: Session refreshed
+  /sessions/revoke:
+    post:
+      tags: [Sessions]
+      summary: Revoke session
+      operationId: revokeSession
+      responses:
+        '200':
+          description: Session revoked
+  /sessions/user/revoke:
+    post:
+      tags: [Sessions]
+      summary: Revoke all user sessions
+      operationId: revokeUserSessions
+      responses:
+        '200':
+          description: All sessions revoked
+  /users/{userId}/devices:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [Devices]
+      summary: List user devices
+      operationId: listDevices
+      responses:
+        '200':
+          description: Devices returned
+  /users/{userId}/devices/{deviceId}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - in: path
+        name: deviceId
+        required: true
+        schema: { type: string }
+    patch:
+      tags: [Devices]
+      summary: Update device
+      operationId: updateDevice
+      responses:
+        '200':
+          description: Device updated
+  /users/{userId}/devices/{deviceId}/invalidate:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - in: path
+        name: deviceId
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Devices]
+      summary: Invalidate device
+      operationId: invalidateDevice
+      responses:
+        '200':
+          description: Device invalidated
+  /users/authenticators:
+    post:
+      tags: [Authenticators]
+      summary: Batch enroll passkeys
+      operationId: batchEnrollAuthenticators
+      responses:
+        '200':
+          description: Authenticators enrolled
+components:
+  parameters:
+    UserId:
+      in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+      description: Authsignal user ID
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: |
+        HTTP Basic auth where the username is the Authsignal tenant secret API
+        key and the password is empty.
+security:
+  - basicAuth: []
