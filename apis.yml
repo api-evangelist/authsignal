@@ -315,6 +315,13 @@ apis:
   - type: OpenAPI
     url: openapi/authsignal-users-api-openapi.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/authsignal/authsignal-node/issues
+  - type: Releases
+    url: https://github.com/authsignal/authsignal-node/releases
+  - type: License
+    name: MIT
+    url: https://github.com/authsignal/authsignal-node/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/authsignal-agentic-access.yml
   - type: DomainSecurity
