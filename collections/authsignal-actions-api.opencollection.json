@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authsignal Server Actions API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Track action",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/users/:userId/actions/:action",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Track action"
+        },
+        {
+          "info": {
+            "name": "Get action",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users/:userId/actions/:action/:idempotencyKey",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "idempotencyKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get action"
+        },
+        {
+          "info": {
+            "name": "Update action",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.authsignal.com/v1/users/:userId/actions/:action/:idempotencyKey",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "idempotencyKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update action"
+        },
+        {
+          "info": {
+            "name": "Query user actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users/:userId/actions",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "Query user actions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

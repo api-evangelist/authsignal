@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authsignal Server Actions Devices API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List user devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users/:userId/devices",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "List user devices"
+        },
+        {
+          "info": {
+            "name": "Update device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.authsignal.com/v1/users/:userId/devices/:deviceId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update device"
+        },
+        {
+          "info": {
+            "name": "Invalidate device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/users/:userId/devices/:deviceId/invalidate",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Invalidate device"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

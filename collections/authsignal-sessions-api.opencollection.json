@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authsignal Server Actions Sessions API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions"
+          },
+          "docs": "Create session"
+        },
+        {
+          "info": {
+            "name": "Validate session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions/validate"
+          },
+          "docs": "Validate session"
+        },
+        {
+          "info": {
+            "name": "Refresh session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions/refresh"
+          },
+          "docs": "Refresh session"
+        },
+        {
+          "info": {
+            "name": "Revoke session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions/revoke"
+          },
+          "docs": "Revoke session"
+        },
+        {
+          "info": {
+            "name": "Revoke all user sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/sessions/user/revoke"
+          },
+          "docs": "Revoke all user sessions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

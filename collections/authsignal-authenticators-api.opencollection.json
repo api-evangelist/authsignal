@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authsignal Server Actions Authenticators API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authenticators",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get tenant authenticators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/authenticators"
+          },
+          "docs": "Get tenant authenticators"
+        },
+        {
+          "info": {
+            "name": "Get user authenticators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/users/:userId/authenticators",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "Get user authenticators"
+        },
+        {
+          "info": {
+            "name": "Enroll authenticator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/users/:userId/authenticators",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              }
+            ]
+          },
+          "docs": "Enroll authenticator"
+        },
+        {
+          "info": {
+            "name": "Delete authenticator",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.authsignal.com/v1/users/:userId/authenticators/:userAuthenticatorId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Authsignal user ID"
+              },
+              {
+                "name": "userAuthenticatorId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete authenticator"
+        },
+        {
+          "info": {
+            "name": "Batch enroll passkeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/users/authenticators"
+          },
+          "docs": "Batch enroll passkeys"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

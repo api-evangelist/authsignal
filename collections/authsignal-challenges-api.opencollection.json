@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authsignal Server Actions Challenges API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Challenges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Challenge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/challenge"
+          },
+          "docs": "Initiate a challenge via SMS, email or WhatsApp."
+        },
+        {
+          "info": {
+            "name": "Verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/verify"
+          },
+          "docs": "Verify a challenge using a submitted code."
+        },
+        {
+          "info": {
+            "name": "Claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/claim"
+          },
+          "docs": "Claim an SMS/email challenge on behalf of a user."
+        },
+        {
+          "info": {
+            "name": "Get challenge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.authsignal.com/v1/challenges"
+          },
+          "docs": "Get challenge"
+        },
+        {
+          "info": {
+            "name": "Validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.authsignal.com/v1/validate"
+          },
+          "docs": "Validate the result of an action using a token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
