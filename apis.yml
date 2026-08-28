@@ -12,6 +12,20 @@ description: >-
   attempt. Authsignal slots in front of existing identity providers
   (Cognito, Auth0, Azure AD B2C, Keycloak, IdentityServer, NextAuth.js) or
   works standalone.
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: true
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
