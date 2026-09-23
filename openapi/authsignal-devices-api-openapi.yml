@@ -1,15 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Authsignal Server Actions Devices API
+  title: Authsignal Server Devices API
   description: 'Best-effort OpenAPI 3.1 description of the Authsignal Server API (v1).
 
     Authsignal provides drop-in MFA, passwordless and risk-based authentication.
 
     Derived from public docs at https://docs.authsignal.com/api-reference/server-api/overview
 
-    and the OpenAPI spec referenced at https://docs.authsignal.com/server-api.json.
-
-    '
+    and the OpenAPI spec referenced at https://docs.authsignal.com/server-api.json.'
   version: '1'
   contact:
     name: Authsignal Docs

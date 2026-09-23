@@ -1,12 +1,7 @@
 {
   "provider": "authsignal",
   "sources": [
-    "authsignal-actions-api-openapi.yml",
-    "authsignal-authenticators-api-openapi.yml",
-    "authsignal-challenges-api-openapi.yml",
-    "authsignal-devices-api-openapi.yml",
-    "authsignal-sessions-api-openapi.yml",
-    "authsignal-users-api-openapi.yml"
+    "_original/authsignal-openapi.yml"
   ],
   "outputs": [
     "authsignal-actions-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "authsignal-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "authsignal-actions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "authsignal-authenticators-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "authsignal-challenges-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "authsignal-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "authsignal-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "authsignal-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
