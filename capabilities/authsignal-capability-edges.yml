@@ -1,0 +1,65 @@
+slug: authsignal
+provider: Authsignal
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Authenticators
+  spec_file: authsignal-authenticators-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: POST /users/{userId}/authenticators enrollAuthenticator "Enroll authenticator"; POST /users/authenticators
+    "Batch enroll passkeys"
+  reason: Enrolment, listing and deletion of MFA authenticators and passkeys for users is squarely identity
+    and access management (authentication factor lifecycle).
+- tag: Sessions
+  spec_file: authsignal-sessions-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: POST /sessions/validate validateSession; POST /sessions/user/revoke "Revoke all user sessions"
+  reason: Authenticated session issuance, validation, refresh and revocation is the access-management
+    half of IAM for this authentication vendor, not generic API plumbing — session control is the product.
+- tag: Devices
+  spec_file: authsignal-devices-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: GET /users/{userId}/devices listDevices "List user devices"; POST /users/{userId}/devices/{deviceId}/invalidate
+    "Invalidate device"
+  reason: Trusted-device registration and invalidation for a user's authentication context is part of
+    identity and access management; the tag is generic so confidence is moderate.
+- tag: Users
+  spec_file: authsignal-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: GET /users/{userId} getUser; DELETE /users/{userId} deleteUser; GET /users queryUsers "Query
+    users"
+  reason: CRUD over the authentication platform's user identities (the subjects of MFA enrolment and challenges)
+    is identity lifecycle administration within IAM, not customer master data.
+- tag: Actions
+  spec_file: authsignal-actions-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /users/{userId}/actions/{action} trackAction "Track action"; GET /users/{userId}/actions
+    queryActions "Query user actions"
+  reason: Actions are the user authentication events tracked and scored by the risk engine to decide whether
+    step-up authentication is required, so the surface serves identity and access management rather than
+    any business-domain action.
