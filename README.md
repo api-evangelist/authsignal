@@ -1,4 +1,4 @@
-# Authsignal (authsignal)
+# Authsignal
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,351 +66,142 @@
 
 Authsignal is a passwordless, step-up, and risk-based authentication platform. The product wraps passkeys, authenticator apps (TOTP), SMS and WhatsApp OTP, email OTP and magic links, push notifications, biometrics (face / palm), and ID verification behind a unified Server API, Client API, and Management API. A no-code rules engine routes high-risk events through step-up challenges, and audit / observability surfaces every authentication attempt. Authsignal slots in front of existing identity providers (Cognito, Auth0, Azure AD B2C, Keycloak, IdentityServer, NextAuth.js) or works standalone.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/authsignal/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/authsignal/refs/heads/main/apis.yml)
+**Areas:** Authentication · Passkeys · MFA · Step-Up · Passwordless · Risk Management · Biometrics · Identity Verification
 
-## Tags
+## Authsignal on APIs.io
 
-- Authentication
-- Passkeys
-- MFA
-- Step-Up
-- Passwordless
-- Risk
-- Biometrics
-- Identity Verification
+Everything profiled for Authsignal is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/authsignal/](https://apis.io/providers/authsignal/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (22)
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
+- [Authsignal Server API](https://apis.io/apis/authsignal/server-api/) — Server-to-server REST API used to track user actions, evaluate the rules engine, mint short-lived URLs for the pre-built authentication UI, issue client…
+- [Authsignal Client API](https://apis.io/apis/authsignal/client-api/) — Browser / device-facing REST API for fully custom authentication UIs. Supports passkeys, authenticator apps, SMS / WhatsApp OTP, email OTP, magic links, and…
+- [Authsignal Management API](https://apis.io/apis/authsignal/management-api/) — REST API for tenant-level configuration: actions and rules, theme and branding, and other tenant settings. Authenticated with a separate management API key.
+- [Authsignal Webhooks](https://apis.io/apis/authsignal/webhooks/) — Outbound webhooks delivering authentication and enrollment events, enabling downstream systems to react to user lifecycle changes and challenge outcomes.
+- [Authsignal Node.js SDK](https://apis.io/apis/authsignal/sdk-node/) — Official server-side SDK for Node.js / TypeScript wrapping the Server API.
+- [Authsignal Python SDK](https://apis.io/apis/authsignal/sdk-python/) — Official server-side Python SDK for the Authsignal Server API.
+- [Authsignal Java SDK](https://apis.io/apis/authsignal/sdk-java/) — Official Java / Kotlin SDK for the Authsignal Server API.
+- [Authsignal .NET SDK](https://apis.io/apis/authsignal/sdk-dotnet/) — Official C# / .NET SDK for the Authsignal Server API.
+- [Authsignal Ruby SDK](https://apis.io/apis/authsignal/sdk-ruby/) — Official Ruby SDK for the Authsignal Server API.
+- [Authsignal PHP SDK](https://apis.io/apis/authsignal/sdk-php/) — Official PHP SDK for the Authsignal Server API.
+- [Authsignal Go SDK](https://apis.io/apis/authsignal/sdk-go/) — Official Go SDK for the Authsignal Server API.
+- [Authsignal Browser SDK](https://apis.io/apis/authsignal/sdk-browser/) — JavaScript / TypeScript browser SDK wrapping the Client API and WebAuthn / passkey ceremonies for web applications.
+- [Authsignal iOS SDK](https://apis.io/apis/authsignal/sdk-ios/) — Native iOS (Swift) SDK for passkeys, push, and OTP challenges in iOS applications.
+- [Authsignal Android SDK](https://apis.io/apis/authsignal/sdk-android/) — Native Android (Kotlin) SDK for passkeys, push, and OTP challenges in Android applications.
+- [Authsignal React Native SDK](https://apis.io/apis/authsignal/sdk-react-native/) — React Native wrapper around the iOS and Android SDKs.
+- [Authsignal Flutter SDK](https://apis.io/apis/authsignal/sdk-flutter/) — Flutter (Dart) SDK wrapping the iOS and Android native SDKs.
+- [Authsignal Actions API](https://apis.io/apis/authsignal/authsignal-actions-api/) — The Actions API from Authsignal — 3 operation(s) for actions.
+- [Authsignal Authenticators API](https://apis.io/apis/authsignal/authsignal-authenticators-api/) — The Authenticators API from Authsignal — 4 operation(s) for authenticators.
+- [Authsignal Challenges API](https://apis.io/apis/authsignal/authsignal-challenges-api/) — The Challenges API from Authsignal — 5 operation(s) for challenges.
+- [Authsignal Devices API](https://apis.io/apis/authsignal/authsignal-devices-api/) — The Devices API from Authsignal — 3 operation(s) for devices.
+- [Authsignal Sessions API](https://apis.io/apis/authsignal/authsignal-sessions-api/) — The Sessions API from Authsignal — 5 operation(s) for sessions.
+- [Authsignal Users API](https://apis.io/apis/authsignal/authsignal-users-api/) — The Users API from Authsignal — 2 operation(s) for users.
 
-## APIs
+### Published properties
 
-### Authsignal Server API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Server-to-server REST API used to track user actions, evaluate the rules engine, mint short-lived URLs for the pre-built authentication UI, issue client tokens, validate challenge results, and manage enrolled authenticators on behalf of users. Authenticated with the tenant secret (HTTP Basic with the tenant ID as username).
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.authsignal.com/api-reference/server-api/overview](https://docs.authsignal.com/api-reference/server-api/overview)
-- **Base URL:** `https://api.authsignal.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Authsignal Agentic Access](https://apis.io/agentic-access/authsignal/authsignal-agentic-access/)
 
-- REST
-- Server
-- Actions
-- Users
-- Authenticators
+#### Collections (7)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.authsignal.com/api-reference/server-api/overview)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Authsignal Server API](https://apis.io/collections/authsignal/open-authsignal/)
+- [Authsignal Server Actions API](https://apis.io/collections/authsignal/open-authsignal-actions-api/)
+- [Authsignal Server Actions Authenticators API](https://apis.io/collections/authsignal/open-authsignal-authenticators-api/)
+- [Authsignal Server Actions Challenges API](https://apis.io/collections/authsignal/open-authsignal-challenges-api/)
+- [Authsignal Server Actions Devices API](https://apis.io/collections/authsignal/open-authsignal-devices-api/)
+- [Authsignal Server Actions Sessions API](https://apis.io/collections/authsignal/open-authsignal-sessions-api/)
+- [Authsignal Server Actions Users API](https://apis.io/collections/authsignal/open-authsignal-users-api/)
 
-### Authsignal Client API
+#### Security (2)
 
-Browser / device-facing REST API for fully custom authentication UIs. Supports passkeys, authenticator apps, SMS / WhatsApp OTP, email OTP, magic links, and push challenges. Authenticated with short-lived client tokens issued by the Server API.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.authsignal.com/api-reference/client-api/overview](https://docs.authsignal.com/api-reference/client-api/overview)
-- **Base URL:** `https://api.authsignal.com`
+- [Authsignal Authentication](https://apis.io/security/authsignal/authsignal-authentication/)
+- [Authsignal Domain Security](https://apis.io/security/authsignal/authsignal-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- REST
-- Client
-- Passkeys
-- OTP
+Published plans, tiers and prices.
 
-#### Properties
+- [Authsignal Plans Pricing](https://apis.io/plans/authsignal/authsignal-plans-pricing/)
 
-- [Documentation](https://docs.authsignal.com/api-reference/client-api/overview)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Authsignal Management API
+Published request limits.
 
-REST API for tenant-level configuration: actions and rules, theme and branding, and other tenant settings. Authenticated with a separate management API key.
+- [Authsignal Rate Limits](https://apis.io/rate-limits/authsignal/authsignal-rate-limits/)
 
-- **Human URL:** [https://docs.authsignal.com/api-reference/management-api/overview](https://docs.authsignal.com/api-reference/management-api/overview)
-- **Base URL:** `https://api.authsignal.com`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- REST
-- Management
-- Configuration
-- Tenant
+- [Authsignal Finops](https://apis.io/finops/authsignal/authsignal-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.authsignal.com/api-reference/management-api/overview)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal Webhooks
-
-Outbound webhooks delivering authentication and enrollment events, enabling downstream systems to react to user lifecycle changes and challenge outcomes.
-
-- **Human URL:** [https://docs.authsignal.com/concepts/webhooks](https://docs.authsignal.com/concepts/webhooks)
-- **Base URL:** `customer-configured`
-
-#### Tags
-
-- Webhooks
-- Events
-
-#### Properties
-
-- [Documentation](https://docs.authsignal.com/concepts/webhooks)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal Node.js SDK
-
-Official server-side SDK for Node.js / TypeScript wrapping the Server API.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-node](https://github.com/authsignal/authsignal-node)
-- **Base URL:** `https://github.com/authsignal/authsignal-node`
-
-#### Tags
-
-- SDK
-- Node.js
-- TypeScript
-- Server
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-node)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal Python SDK
-
-Official server-side Python SDK for the Authsignal Server API.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-python](https://github.com/authsignal/authsignal-python)
-- **Base URL:** `https://github.com/authsignal/authsignal-python`
-
-#### Tags
-
-- SDK
-- Python
-- Server
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-python)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal Java SDK
-
-Official Java / Kotlin SDK for the Authsignal Server API.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-java](https://github.com/authsignal/authsignal-java)
-- **Base URL:** `https://github.com/authsignal/authsignal-java`
-
-#### Tags
-
-- SDK
-- Java
-- Kotlin
-- Server
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-java)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal .NET SDK
-
-Official C# / .NET SDK for the Authsignal Server API.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-dotnet](https://github.com/authsignal/authsignal-dotnet)
-- **Base URL:** `https://github.com/authsignal/authsignal-dotnet`
-
-#### Tags
-
-- SDK
-- .NET
-- C#
-- Server
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-dotnet)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal Ruby SDK
-
-Official Ruby SDK for the Authsignal Server API.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-ruby](https://github.com/authsignal/authsignal-ruby)
-- **Base URL:** `https://github.com/authsignal/authsignal-ruby`
-
-#### Tags
-
-- SDK
-- Ruby
-- Server
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-ruby)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal PHP SDK
-
-Official PHP SDK for the Authsignal Server API.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-php](https://github.com/authsignal/authsignal-php)
-- **Base URL:** `https://github.com/authsignal/authsignal-php`
-
-#### Tags
-
-- SDK
-- PHP
-- Server
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-php)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal Go SDK
-
-Official Go SDK for the Authsignal Server API.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-go](https://github.com/authsignal/authsignal-go)
-- **Base URL:** `https://github.com/authsignal/authsignal-go`
-
-#### Tags
-
-- SDK
-- Go
-- Server
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-go)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal Browser SDK
-
-JavaScript / TypeScript browser SDK wrapping the Client API and WebAuthn / passkey ceremonies for web applications.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-browser](https://github.com/authsignal/authsignal-browser)
-- **Base URL:** `https://github.com/authsignal/authsignal-browser`
-
-#### Tags
-
-- SDK
-- JavaScript
-- Browser
-- Passkeys
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-browser)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal iOS SDK
-
-Native iOS (Swift) SDK for passkeys, push, and OTP challenges in iOS applications.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-ios](https://github.com/authsignal/authsignal-ios)
-- **Base URL:** `https://github.com/authsignal/authsignal-ios`
-
-#### Tags
-
-- SDK
-- iOS
-- Mobile
-- Passkeys
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-ios)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal Android SDK
-
-Native Android (Kotlin) SDK for passkeys, push, and OTP challenges in Android applications.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-android](https://github.com/authsignal/authsignal-android)
-- **Base URL:** `https://github.com/authsignal/authsignal-android`
-
-#### Tags
-
-- SDK
-- Android
-- Mobile
-- Passkeys
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-android)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal React Native SDK
-
-React Native wrapper around the iOS and Android SDKs.
-
-- **Human URL:** [https://github.com/authsignal/react-native-authsignal](https://github.com/authsignal/react-native-authsignal)
-- **Base URL:** `https://github.com/authsignal/react-native-authsignal`
-
-#### Tags
-
-- SDK
-- React Native
-- Mobile
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/react-native-authsignal)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Authsignal Flutter SDK
-
-Flutter (Dart) SDK wrapping the iOS and Android native SDKs.
-
-- **Human URL:** [https://github.com/authsignal/authsignal-flutter](https://github.com/authsignal/authsignal-flutter)
-- **Base URL:** `https://github.com/authsignal/authsignal-flutter`
-
-#### Tags
-
-- SDK
-- Flutter
-- Mobile
-
-#### Properties
-
-- [Repository](https://github.com/authsignal/authsignal-flutter)
-- [Postman Collection](collections/authsignal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/authsignal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.authsignal.com/)
 - [Documentation](https://docs.authsignal.com/)
-- [Git Hub](https://github.com/authsignal)
-- [Status](https://status.authsignal.com/)
 - [Pricing](https://www.authsignal.com/pricing)
 - [Blog](https://www.authsignal.com/blog)
-- [LinkedIn](https://www.linkedin.com/company/authsignal)
-- [L L Ms Txt](https://docs.authsignal.com/llms.txt)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 28.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 46.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 15.8 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.3** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/authsignal/](https://apis.io/providers/authsignal/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Authsignal: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/authsignal/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
